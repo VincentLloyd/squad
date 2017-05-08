@@ -1,1 +1,8 @@
 <h1>Homepage</h1>
+
+<% if current_user.captain_profile.present? %>
+  <%= 'Your Classes'%><br />
+  <%= 'Here be a list of ' + current_user.profile.first_name + '\'s classes' %><br />
+<% end %>
+
+<%= link_to 'Register as a Captain', new_captain_profile_path %><br />

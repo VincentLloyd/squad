@@ -10,17 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170505071958) do
+ActiveRecord::Schema.define(version: 20170508112217) do
 
-  create_table "profiles", force: :cascade do |t|
+  create_table "captain_profiles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "bio",           null: false
+    t.string   "contact_phone", null: false
+    t.string   "contact_email", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["contact_phone", "contact_email"], name: "index_captain_profiles_on_contact_phone_and_contact_email", unique: true
+    t.index ["user_id"], name: "index_captain_profiles_on_user_id"
+  end
+
+  create_table "exercise_types", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "username"
-    t.string   "avatar"
-    t.date     "dob"
+  end
+
+  create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"
+    t.string   "username",      null: false
+    t.string   "first_name",    null: false
+    t.string   "last_name",     null: false
+    t.date     "date_of_birth", null: false
+    t.string   "gender"
+    t.string   "avatar_src"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
     t.index ["username"], name: "index_profiles_on_username", unique: true
   end

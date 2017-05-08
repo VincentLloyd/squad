@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @captain_profile.user_id %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @captain_profile.bio %>
+</p>
+
+<p>
+  <strong>Contact phone:</strong>
+  <%= @captain_profile.contact_phone %>
+</p>
+
+<p>
+  <strong>Contact email:</strong>
+  <%= @captain_profile.contact_email %>
+</p>
+
+<%= link_to 'Edit', edit_captain_profile_path(@captain_profile) %> |
+<%= link_to 'Back', captain_profiles_path %>

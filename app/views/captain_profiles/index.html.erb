@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Captain Profiles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Bio</th>
+      <th>Contact phone</th>
+      <th>Contact email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @captain_profiles.each do |captain_profile| %>
+      <tr>
+        <td><%= captain_profile.user_id %></td>
+        <td><%= captain_profile.bio %></td>
+        <td><%= captain_profile.contact_phone %></td>
+        <td><%= captain_profile.contact_email %></td>
+        <td><%= link_to 'Show', captain_profile %></td>
+        <td><%= link_to 'Edit', edit_captain_profile_path(captain_profile) %></td>
+        <td><%= link_to 'Destroy', captain_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Captain Profile', new_captain_profile_path %>
