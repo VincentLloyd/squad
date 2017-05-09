@@ -1,3 +1,62 @@
 @import "bootstrap";
-@import "AdminLTE";
-@import "skins/skin-red";
+
+::-webkit-input-placeholder {
+  color: #999;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+}
+
+.sign-in-box {
+  display: block;
+  text-align: center;
+  margin-top: 20%;
+}
+
+.join-box {
+  margin-top: 30%
+}
+
+.title {
+  margin: 20px 0 20px 0;
+}
+
+.devise-label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  margin: 0 0 0 5px;
+}
+
+#forgot-label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  margin: 0 0 10px 0;
+}
+
+.flex-center-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.flex-center-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+#title {
+  font-family: 'Anton', sans-serif;
+  font-size: 80px;
+  margin-bottom: 0;
+}
+
+#sub-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 8px;
+}
