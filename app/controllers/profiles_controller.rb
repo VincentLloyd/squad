@@ -15,7 +15,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/new
   def new
     if current_user.profile.present?
-      redirect_to profile_path(current_user.id)
+      redirect_to profile_path(current_user.profile.id)
     end
     @profile = Profile.new
   end
