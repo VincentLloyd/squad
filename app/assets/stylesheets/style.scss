@@ -6,6 +6,11 @@
   font-family: 'Roboto', sans-serif;
   font-size: 11px;
 }
+.lunch-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .sign-in-box {
   display: block;
@@ -14,7 +19,7 @@
 }
 
 .join-box {
-  margin-top: 30%
+  margin-top: 15%
 }
 
 .title {
@@ -48,9 +53,28 @@
   margin: 0;
 }
 
+.alert-container {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: 5%;
+  left: 0;
+}
+
+.alert {
+  text-align: center;
+}
+
 #title {
   font-family: 'Anton', sans-serif;
   font-size: 80px;
+  margin-bottom: 0;
+}
+
+#title-nav {
+  font-family: 'Anton', sans-serif;
+  font-size: 30px;
   margin-bottom: 0;
 }
 

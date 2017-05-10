@@ -11,33 +11,12 @@
   </head>
 
   <body>
-    <% if flash[:notice].present? %>
-      <div class="alert alert-info">
-        <span class="glyphicon glyphicon-info-sign"></span>
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
-
-    <% if flash[:alert].present? %>
-      <div class="alert alert-danger">
-        <span class="glyphicon glyphicon-exclamation-sign"></span>
-        <%= flash[:alert] %>
-      </div>
-    <% end %>
-
+    <%= render 'layouts/messages' %>
     <% if user_signed_in? %>
       <% unless current_page?(controller: 'profiles', action: 'new') %>
         <% profile_incomplete? %>
       <% end %>
-      <%= 'Signed in as'%>
-      <%= current_user.email %><br />
-      <%= link_to('Sign Out', destroy_user_session_path, :method => :delete) %>
-    <% else %>
-      <!-- <%= link_to('Login', new_user_session_path)  %>
-      <%= current_user.nil?%> -->
     <% end %>
     <%= yield %>
-
-    </script>
   </body>
 </html>
