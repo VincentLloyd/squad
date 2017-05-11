@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170509184712) do
+ActiveRecord::Schema.define(version: 20170511051347) do
 
   create_table "captain_profiles", force: :cascade do |t|
     t.integer  "user_id"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 20170509184712) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "exercise_types_in_users", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "exercise_type_id"
+    t.boolean  "offered"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["exercise_type_id"], name: "index_exercise_types_in_users_on_exercise_type_id"
+    t.index ["user_id"], name: "index_exercise_types_in_users_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|

@@ -46,6 +46,7 @@
 #
 
 Rails.application.routes.draw do
+  resources :exercise_types_in_users
   resources :exercise_types
   resources :captain_profiles
   resources :profiles

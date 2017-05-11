@@ -1,11 +1,36 @@
-@import "bootstrap";
-
-::-webkit-input-placeholder {
-  color: #999;
-  text-align: center;
+#forgot-label {
   font-family: 'Roboto', sans-serif;
-  font-size: 11px;
+  font-size: 12px;
+  margin: 0 0 10px 0;
 }
+
+#sub-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  color: #fff;
+}
+
+#title {
+  font-family: 'Anton', sans-serif;
+  font-size: 80px;
+  margin-bottom: 0;
+}
+
+#title-nav {
+  font-family: 'Anton', sans-serif;
+  font-size: 30px;
+  margin-bottom: 0;
+}
+
+.content {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .lunch-box {
   display: flex;
   align-items: center;
@@ -13,13 +38,15 @@
 }
 
 .sign-in-box {
-  display: block;
   text-align: center;
-  margin-top: 20%;
 }
 
-.join-box {
-  margin-top: 15%
+.join-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #000;
 }
 
 .title {
@@ -30,12 +57,6 @@
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
   margin: 0 0 0 5px;
-}
-
-#forgot-label {
-  font-family: 'Roboto', sans-serif;
-  font-size: 12px;
-  margin: 0 0 10px 0;
 }
 
 .flex-center-row {
@@ -53,6 +74,8 @@
   margin: 0;
 }
 
+// flash messages
+
 .alert-container {
   width: 100%;
   position: fixed;
@@ -64,23 +87,4 @@
 
 .alert {
   text-align: center;
-}
-
-#title {
-  font-family: 'Anton', sans-serif;
-  font-size: 80px;
-  margin-bottom: 0;
-}
-
-#title-nav {
-  font-family: 'Anton', sans-serif;
-  font-size: 30px;
-  margin-bottom: 0;
-}
-
-#sub-title {
-  font-family: 'Roboto', sans-serif;
-  font-size: 30px;
-  font-weight: 300;
-  margin-bottom: 8px;
 }

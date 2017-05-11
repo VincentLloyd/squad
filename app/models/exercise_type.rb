@@ -9,4 +9,6 @@
 #
 
 class ExerciseType < ApplicationRecord
+  has_many :exercise_types_in_user
+  has_many :user, through: :exercise_types_in_user
 end
