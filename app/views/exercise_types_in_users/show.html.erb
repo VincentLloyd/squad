@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @exercise_types_in_user.user %>
+</p>
+
+<p>
+  <strong>Exercise type:</strong>
+  <%= @exercise_types_in_user.exercise_type %>
+</p>
+
+<p>
+  <strong>Offered:</strong>
+  <%= @exercise_types_in_user.offered %>
+</p>
+
+<%= link_to 'Edit', edit_exercise_types_in_user_path(@exercise_types_in_user) %> |
+<%= link_to 'Back', exercise_types_in_users_path %>

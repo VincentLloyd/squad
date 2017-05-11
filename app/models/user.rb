@@ -25,6 +25,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   has_one :profile
   has_one :captain_profile
+  has_many :exercise_types_in_user
+  has_many :exercise_type, through: :exercise_types_in_user
 
   protected
   def confirmation_required?
