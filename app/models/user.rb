@@ -16,6 +16,9 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  username               :string
+#  confirmation_token     :string
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
 #
 
 class User < ApplicationRecord
@@ -30,7 +33,7 @@ class User < ApplicationRecord
 
   protected
   def confirmation_required?
-    false
+    true
   end
 
 end

@@ -13,4 +13,17 @@
  *= require normalize-rails
  *= require main
  *= require bootstrap-datepicker
+ *= require_self
  */
+
+@media (max-width: 576px) {
+
+   .profile-button-bar {
+     flex-direction: column;
+   }
+
+   .app-button.profile-button {
+     margin-right: 0;
+     margin-top: 5px;
+   }
+ }

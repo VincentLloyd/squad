@@ -10,6 +10,7 @@ class CaptainProfilesController < ApplicationController
   # GET /captain_profiles/1
   # GET /captain_profiles/1.json
   def show
+    @captain_profile = CaptainProfile.find_by(user_id: current_user.id)
   end
 
   # GET /captain_profiles/new
@@ -32,7 +33,7 @@ class CaptainProfilesController < ApplicationController
 
     respond_to do |format|
       if @captain_profile.save
-        format.html { redirect_to @captain_profile, notice: 'Captain profile was successfully created.' }
+        format.html { redirect_to profile_path(@captain_profile.user.profile.id), notice: 'Captain profile was successfully created.' }
         format.json { render :show, status: :created, location: @captain_profile }
       else
         format.html { render :new }
@@ -46,7 +47,8 @@ class CaptainProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @captain_profile.update(captain_profile_params)
-        format.html { redirect_to @captain_profile, notice: 'Captain profile was successfully updated.' }
+        format.html { redirect_to profile_path(@captain_profile.user.profile.id), notice: 'Captain profile was successfully updated.' }
+        # format.html { redirect_to profile_path(current_user.profile.id), notice: 'Captain profile was successfully updated.' }
         format.json { render :show, status: :ok, location: @captain_profile }
       else
         format.html { render :edit }
@@ -60,7 +62,7 @@ class CaptainProfilesController < ApplicationController
   def destroy
     @captain_profile.destroy
     respond_to do |format|
-      format.html { redirect_to captain_profiles_url, notice: 'Captain profile was successfully destroyed.' }
+      format.html { redirect_to profile_path(@captain_profile.user.profile.id), notice: 'Captain profile was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -73,6 +75,6 @@ class CaptainProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def captain_profile_params
-      params.require(:captain_profile).permit(:user_id_id, :bio, :contact_phone, :contact_email)
+      params.require(:captain_profile).permit(:user_id, :bio, :contact_phone, :contact_email)
     end
 end

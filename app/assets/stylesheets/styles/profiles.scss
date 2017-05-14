@@ -1,2 +1,16 @@
 // Place all the styles related to the Profiles controller here.
 // They will automatically be included in application.css.
+
+.profile-page-box {
+  margin-top: 80px;
+  width: 100%;
+}
+
+.profile-button-bar {
+  display: flex;
+}
+
+.profile-card {
+  width: 95%;
+  margin: 15px auto 15px;
+}

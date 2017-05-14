@@ -1,9 +1,17 @@
-<%= render "home/navbar" %>
+<%= render "layouts/navbar" %>
+<div class="profile-page-box">
+  <p>
+    <%= 'Logged in as ' + current_user.email + ' | User ID: ' + current_user.id.to_s %>
+  </p>
 
-<% if current_user.captain_profile.present? %>
-  <%= 'Your Classes'%><br />
-  <%= 'Here be a list of ' + current_user.profile.first_name + '\'s classes' %><br />
-<% end %>
-<% if current_user.captain_profile.nil? %>
+  <%= request.referrer %><br />
+  <%= request.referrer == new_user_session_path %><br /><br />
+
+  <% if is_user_captain? %>
+  <%= 'Your Squads'%><br />
+  <%= 'Here be a list of ' + current_user.profile.first_name + '\'s squads' %><br />
+  <% end %>
+  <% if current_user.captain_profile.nil? %>
   <%= link_to 'Register as a Captain', new_captain_profile_path %><br />
-<% end %>
+  <% end %>
+</div>

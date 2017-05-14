@@ -1,6 +1,6 @@
 <% if flash[:notice].present? %>
   <div class="alert-container">
-    <div class="alert alert-info">
+    <div class="alert alert-danger alert-dismissible">
       <%= flash[:notice] %>
     </div>
   </div>
@@ -8,7 +8,23 @@
 
 <% if flash[:alert].present? %>
   <div class="alert-container">
-    <div class="alert alert-danger">
+    <div class="alert alert-info alert-dismissible">
+      <%= flash[:alert] %>
+    </div>
+  </div>
+<% end %>
+
+<% if flash[:notice].present? %>
+  <div class="alert-container">
+    <div class="alert alert-success alert-dismissible">
+      <%= flash[:notice] %>
+    </div>
+  </div>
+<% end %>
+
+<% if flash[:alert].present? %>
+  <div class="alert-container">
+    <div class="alert alert-warning alert-dismissible">
       <%= flash[:alert] %>
     </div>
   </div>
