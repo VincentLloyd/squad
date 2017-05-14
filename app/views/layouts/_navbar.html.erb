@@ -1,0 +1,14 @@
+<div class="nav-box">
+  <nav class="navbar navbar-light bg-faded">
+    <div class="nav-elements-box">
+      <%= link_to "SQUAD", {controller: "home", action: "index"}, id: "nav-title", class: "navbar-brand" %>
+      <div class="nav-link-box">
+        <div>
+          <%= request.referrer %>
+        </div>
+        <%= link_to 'Profile', profile_path(user_profile_id), :class => 'btn btn-large btn-outline-secondary app-button' %>
+        <%= link_to 'Sign Out', destroy_user_session_path, :class => 'btn btn-large btn-outline-secondary app-button', method: :delete %>
+      </div>
+    </div>
+  </nav>
+</div>

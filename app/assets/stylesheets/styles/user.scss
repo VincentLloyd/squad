@@ -17,9 +17,9 @@
   margin-bottom: 0;
 }
 
-#title-nav {
+#nav-title {
   font-family: 'Anton', sans-serif;
-  font-size: 30px;
+  font-size: 26px;
   margin-bottom: 0;
 }
 
@@ -74,6 +74,14 @@
   margin: 0;
 }
 
+.field-text {
+  margin-bottom: 10px;
+}
+
+.remember {
+  margin-bottom: 5px;
+}
+
 // flash messages
 
 .alert-container {
@@ -83,8 +91,39 @@
   justify-content: center;
   top: 5%;
   left: 0;
+  z-index: 2;
 }
 
 .alert {
   text-align: center;
+}
+
+.diamond-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.diamond {
+  margin: 0 7px 0 7px
+}
+
+#diamond {
+	width: 0;
+	height: 0;
+	border: 15px solid transparent;
+	border-bottom-color: black;
+	position: relative;
+	top: -15px;
+}
+
+#diamond:after {
+	content: '';
+	position: absolute;
+	left: -15px;
+	top: 15px;
+	width: 0;
+	height: 0;
+	border: 15px solid transparent;
+	border-top-color: black;
 }

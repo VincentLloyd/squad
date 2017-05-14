@@ -1,4 +1,10 @@
+<%= render "layouts/navbar" %>
+
 <p id="notice"><%= notice %></p>
+
+<P>
+  <%= @captain_profile.class %>
+</P>
 
 <p>
   <strong>User:</strong>
@@ -21,4 +27,7 @@
 </p>
 
 <%= link_to 'Edit', edit_captain_profile_path(@captain_profile) %> |
-<%= link_to 'Back', captain_profiles_path %>
+<%= link_to 'Dashboard', root_path %> |
+<%= link_to 'Add Expertise', new_exercise_types_in_user_path %>
+
+<%= render 'layouts/modal' %>

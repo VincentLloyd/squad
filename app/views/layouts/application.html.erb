@@ -14,7 +14,7 @@
     <%= render 'layouts/messages' %>
     <% if user_signed_in? %>
       <% unless current_page?(controller: 'profiles', action: 'new') %>
-        <% profile_incomplete? %>
+        <% user_profile_incomplete? %>
       <% end %>
     <% end %>
     <%= yield %>

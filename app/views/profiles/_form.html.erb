@@ -9,37 +9,34 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.label :username %>
-    <%= f.text_field :username %>
+  <div class="profile-page-box">
+    <div class="card profile-card">
+      <h4 class="card-header">Edit Profile</h4>
+      <div class="card-block">
+        <div class="field">
+          <%= f.label :username %>
+          <%= f.text_field :username %>
+        </div>
+        <div class="field">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name %>
+        </div>
+        <div class="field">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name %>
+        </div>
+        <div class="field">
+          <%= f.label :date_of_birth %>
+          <%= f.text_field :date_of_birth, 'data-provide' => 'datepicker', 'data-date-autoclose' => 'true', 'data-date-end-date' => '0d', 'data-date-format' => 'dd-mm-yyyy', 'data-date-max-view-mode' => '3', 'data-date-assume-nearby-year' => 'true' %><br/>
+        </div>
+        <div class="field">
+          <%= f.label :gender %>
+          <%= f.text_field :gender %>
+        </div>
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :date_of_birth %>
-    <%= f.text_field :date_of_birth, 'data-provide' => 'datepicker', 'data-date-autoclose' => 'true', 'data-date-end-date' => '0d', 'data-date-format' => 'dd-mm-yyyy', 'data-date-max-view-mode' => '3', 'data-date-assume-nearby-year' => 'true' %><br/>
-  </div>
-
-  <div class="field">
-    <%= f.label :gender %>
-    <%= f.text_field :gender %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-
-
-
-<!--
-  <script type="text/javascript">
-    $(document).ready(function(){
-      $('[data-behaviour~=datepicker]').datepicker();
-    })
-  </script> -->
 <% end %>

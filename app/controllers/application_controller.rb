@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
-  helper_method :profile_incomplete?
+  helper_method :user_profile_incomplete?
+  helper_method :is_user_captain?
 
   private
   def after_sign_in_path_for(resource_or_scope)
@@ -12,10 +13,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def profile_incomplete?
+  def user_profile_incomplete?
     if current_user.profile.nil?
       redirect_to new_profile_path
     end
+  end
+
+  def is_user_captain?
+    current_user.captain_profile.present?
   end
 
 end

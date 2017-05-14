@@ -14,6 +14,7 @@ class ExerciseTypesInUsersController < ApplicationController
 
   # GET /exercise_types_in_users/new
   def new
+    session[:return_to] ||= request.referer
     @exercise_types_in_user = ExerciseTypesInUser.new
   end
 
@@ -24,6 +25,7 @@ class ExerciseTypesInUsersController < ApplicationController
   # POST /exercise_types_in_users
   # POST /exercise_types_in_users.json
   def create
+    session[:return_to] ||= request.referer
     @exercise_types_in_user = ExerciseTypesInUser.new(exercise_types_in_user_params)
     @exercise_types_in_user.user_id = current_user.id
 
