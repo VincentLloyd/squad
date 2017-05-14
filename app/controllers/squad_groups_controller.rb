@@ -1,5 +1,5 @@
 class SquadGroupsController < ApplicationController
-  before_action :set_squad_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_squad_group, only: [:show, :edit, :update, :destroy,:delete_all_members]
 
   # GET /squad_groups
   # GET /squad_groups.json
@@ -16,6 +16,7 @@ class SquadGroupsController < ApplicationController
   # GET /squad_groups/1.json
   def show
    @captain_profile = User.find(@squad_group.captain_id).profile
+   @members = SquadMember.where(squadgroup_id: @squad_group.id)
   end
 
   # GET /squad_groups/new
@@ -66,6 +67,19 @@ class SquadGroupsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to squad_groups_url, notice: 'Squad group was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def delete_all_members
+    members = SquadMember.where(squadgroup_id: @squad_group.id)
+
+    respond_to do |format|
+      if members.each {|member| member.destroy}
+        format.html { redirect_to root_path, notice: 'Members resest.' }
+        format.json { render :show, status: :ok}
+      else
+        format.html { redirect_to root_path, notice: 'Members not resest.' }
+      end
     end
   end
 

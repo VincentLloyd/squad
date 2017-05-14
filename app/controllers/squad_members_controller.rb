@@ -32,11 +32,11 @@ class SquadMembersController < ApplicationController
         format.json { render json: @squad_member.errors, status: :unprocessable_entity }
       end
     end
-  rescue Stripe::CardError => e
-   flash[:notice] = e.message
-   redirect_to search_squad_groups_path(search: params[:search])
+    rescue Stripe::CardError => e
+     flash[:notice] = e.message
+     redirect_to search_squad_groups_path(search: params[:search])
   end
-  end
+
 
   # DELETE /squad_members/1
   # DELETE /squad_members/1.json
@@ -52,3 +52,4 @@ class SquadMembersController < ApplicationController
   def set_squad_member
     @squad_member = SquadMember.find(params[:id])
   end
+end

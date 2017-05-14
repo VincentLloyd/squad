@@ -10,10 +10,11 @@
   <% squad_member_count = SquadMember.where(squadgroup_id: squad.id).count %>
   <% member = SquadMember.find_by(user_id: current_user.id, squadgroup_id: squad.id) %>
   <% if member.present? %>
-    <%= form_tag squad_group_squad_member_path(squad,member.id),method: :delete,:multipart => true do %>
-      <%= hidden_field_tag :search, @search_param %>
-      <%= button_tag "Leave" %>
-    <% end %>
+    <%#= form_tag squad_group_squad_member_path(squad,member.id),method: :delete,:multipart => true do %>
+      <%#= hidden_field_tag :search, @search_param %>
+      <%#= button_tag "Leave" %>
+    <%# end %>
+    <p>Joined</p>
   <% else %>
     <% if squad_member_count < squad.max_members %>
     <%= form_tag squad_group_squad_members_path(squad),method: :post,:multipart => true do %>
@@ -25,6 +26,8 @@
           data-amount=<%= squad.price %>
           data-locale="auto"></script>
     <% end %>
+    <% else %>
+    <p>Squad Full</p>
     <% end %>
   <% end %>
   </div>

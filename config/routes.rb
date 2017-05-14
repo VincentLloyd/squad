@@ -57,9 +57,11 @@
 #
 
 Rails.application.routes.draw do
+  resources :squad_group_types
   resources :squad_members
   resources :squad_groups do
     get 'search', to: "squad_groups#search", on: :collection
+    get 'class_finished', to: "squad_groups#delete_all_members", on: :member
     resources :squad_members, only:[:create,:destroy]
   end
   root 'home#index'

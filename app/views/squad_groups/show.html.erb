@@ -22,3 +22,29 @@
 
 <%= link_to 'Edit', edit_squad_group_path(@squad_group) %> |
 <%= link_to 'Back', squad_groups_path %>
+
+<% if !@members.present? %>
+  <p>No members</p>
+<% else %>
+<div class="members">
+  <% @members.each do |member| %>
+  <div class="member" style="border-style:solid;">
+    <% member_profile = User.find(member.user_id).profile %>
+    Username:
+    <%= member_profile.username %>
+    <br>
+    <br>
+    Name:
+    <%= member_profile.first_name %> <%= member_profile.last_name %>
+    <br>
+    <br>
+    Gender:
+   <%= member_profile.gender %>
+   <br>
+   <br>
+   <%= image_tag member_profile.avatar_src if member_profile.avatar_src != nil %>
+
+  </div>
+  <% end %>
+</div>
+<% end %>
