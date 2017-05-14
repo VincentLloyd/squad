@@ -1,0 +1,2 @@
+module SquadGroupsHelper
+end

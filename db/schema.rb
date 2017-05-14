@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170511051347) do
+ActiveRecord::Schema.define(version: 20170514075549) do
 
   create_table "captain_profiles", force: :cascade do |t|
     t.integer  "user_id"
@@ -51,6 +51,19 @@ ActiveRecord::Schema.define(version: 20170511051347) do
     t.datetime "updated_at",    null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
     t.index ["username"], name: "index_profiles_on_username", unique: true
+  end
+
+  create_table "squad_groups", force: :cascade do |t|
+    t.integer  "captain_id"
+    t.string   "name"
+    t.string   "location"
+    t.integer  "max_members"
+    t.integer  "price"
+    t.integer  "exercise_types_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["captain_id"], name: "index_squad_groups_on_captain_id"
+    t.index ["exercise_types_id"], name: "index_squad_groups_on_exercise_types_id"
   end
 
   create_table "users", force: :cascade do |t|

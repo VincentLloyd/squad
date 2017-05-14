@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Squad Groups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Max members</th>
+      <th>Price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @squad_groups.each do |squad_group| %>
+      <tr>
+        <td><%= squad_group.user %></td>
+        <td><%= squad_group.name %></td>
+        <td><%= squad_group.location %></td>
+        <td><%= squad_group.max_members %></td>
+        <td><%= squad_group.price %></td>
+        <td><%= link_to 'Show', squad_group %></td>
+        <td><%= link_to 'Edit', edit_squad_group_path(squad_group) %></td>
+        <td><%= link_to 'Destroy', squad_group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Squad Group', new_squad_group_path %>

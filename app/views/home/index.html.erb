@@ -8,10 +8,18 @@
   <%= request.referrer == new_user_session_path %><br /><br />
 
   <% if is_user_captain? %>
+  <%= link_to "Create new SquadGroup",new_squad_group_path%>
   <%= 'Your Squads'%><br />
   <%= 'Here be a list of ' + current_user.profile.first_name + '\'s squads' %><br />
   <% end %>
   <% if current_user.captain_profile.nil? %>
   <%= link_to 'Register as a Captain', new_captain_profile_path %><br />
   <% end %>
+
+  <%= form_tag search_squad_groups_path,method: :get,:multipart => true do %>
+  <%= select :search,:search, ExerciseType.all.collect {|exercise| [ exercise.name, exercise.id ] } %>
+
+  <%= button_tag 'Search' %>
+  <% end %>
+
 </div>

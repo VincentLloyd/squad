@@ -57,6 +57,9 @@
 #
 
 Rails.application.routes.draw do
+  resources :squad_groups do
+    get 'search', to: "squad_groups#search", on: :collection
+  end
   root 'home#index'
   resources :exercise_types_in_users
   resources :exercise_types

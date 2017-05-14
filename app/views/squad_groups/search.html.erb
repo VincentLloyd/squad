@@ -1,0 +1,10 @@
+<div class="squads">
+  <% @results.each do |squad| %>
+  <div class="squad">
+    Name:<%= squad.name %> <br>
+    Location:<%= squad.location %> <br>
+    Maximum Spaces:<%= squad.max_members %> <br>
+    Price:<%= squad.price %> <br>
+  </div>
+  <% end %>
+</div>
