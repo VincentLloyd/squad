@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'normalize-rails'
+
 gem 'friendly_id', '~> 5.1.0'
 
 gem 'bootstrap-datepicker-rails'
@@ -80,8 +82,8 @@ group :development do
   gem 'binding_of_caller'
 
   gem 'brakeman', :require => false
-  # Prettify SQL console output
-  # gem 'pp_sql'
+
+  gem 'meta_request'
 
 end
 

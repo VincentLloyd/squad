@@ -1,0 +1,28 @@
+<div class="card profile-card">
+  <h4 class="card-header">Captain Profile</h4>
+  <div class="card-block">
+    <p class="card-text">
+      <strong>Captain Bio:</strong>
+      <%= current_user.captain_profile.bio %>
+    </p>
+    <p class="card-text">
+      <strong>Contact Phone:</strong>
+      <%= current_user.captain_profile.contact_phone %>
+    </p>
+    <p class="card-text">
+      <strong>Contact Email:</strong>
+      <%= current_user.captain_profile.contact_email %>
+    </p>
+    <p class="card-text">
+      <strong>Captain Since:</strong>
+      <%= current_user.captain_profile.created_at.to_formatted_s(:long) %>
+    </p>
+    <div class="profile-button-bar">
+      <%= link_to 'Edit Profile', edit_captain_profile_path(capt_profile_id), :class => 'btn btn-large btn-outline-primary app-button profile-button' %>
+      <%= link_to 'Add Expertise', new_exercise_types_in_user_path, :class => 'btn btn-large btn-outline-primary app-button profile-button' %>
+      <%= link_to 'Deregister as Captain', captain_profile_path(capt_profile_id), method: :delete, :class => 'btn btn-large btn-outline-danger app-button profile-button', data: {confirm: "Are you sure?"} %>
+  </div>
+  </div>
+</div>
+
+  <!-- link_to "Delete [resource]", complicated_scope_resource_path(id: @my_resource.id), method: :delete -->

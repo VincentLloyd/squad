@@ -2,22 +2,20 @@
 <html>
   <head>
     <title>Squad</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
   </head>
 
   <body>
+    <%= render 'layouts/messages' %>
     <% if user_signed_in? %>
       <% unless current_page?(controller: 'profiles', action: 'new') %>
-        <% profile_incomplete? %>
+        <% user_profile_incomplete? %>
       <% end %>
-      <%= 'Signed in as'%>
-      <%= current_user.email %><br />
-      <%= link_to('Sign Out', destroy_user_session_path, :method => :delete) %>
-    <% else %>
-      <%= link_to('Login', new_user_session_path)  %>
-      <%= current_user.nil?%>
     <% end %>
     <%= yield %>
   </body>

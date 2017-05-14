@@ -1,0 +1,129 @@
+#forgot-label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  margin: 0 0 10px 0;
+}
+
+#sub-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  color: #fff;
+}
+
+#title {
+  font-family: 'Anton', sans-serif;
+  font-size: 80px;
+  margin-bottom: 0;
+}
+
+#nav-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 26px;
+  margin-bottom: 0;
+}
+
+.content {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lunch-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign-in-box {
+  text-align: center;
+}
+
+.join-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #000;
+}
+
+.title {
+  margin: 20px 0 20px 0;
+}
+
+.devise-label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  margin: 0 0 0 5px;
+}
+
+.flex-center-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.flex-center-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.field-text {
+  margin-bottom: 10px;
+}
+
+.remember {
+  margin-bottom: 5px;
+}
+
+// flash messages
+
+.alert-container {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: 5%;
+  left: 0;
+  z-index: 2;
+}
+
+.alert {
+  text-align: center;
+}
+
+.diamond-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.diamond {
+  margin: 0 7px 0 7px
+}
+
+#diamond {
+	width: 0;
+	height: 0;
+	border: 15px solid transparent;
+	border-bottom-color: black;
+	position: relative;
+	top: -15px;
+}
+
+#diamond:after {
+	content: '';
+	position: absolute;
+	left: -15px;
+	top: 15px;
+	width: 0;
+	height: 0;
+	border: 15px solid transparent;
+	border-top-color: black;
+}

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Exercise Types In Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Username</th>
+      <th>Exercise type</th>
+      <th>Offered</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @exercise_types_in_users.each do |exercise_types_in_user| %>
+      <tr>
+        <td><%= exercise_types_in_user.user %></td>
+        <td><%=  %></td>
+        <td><%= exercise_types_in_user.exercise_type %></td>
+        <td><%= exercise_types_in_user.offered %></td>
+        <td><%= link_to 'Show', exercise_types_in_user %></td>
+        <td><%= link_to 'Edit', edit_exercise_types_in_user_path(exercise_types_in_user) %></td>
+        <td><%= link_to 'Destroy', exercise_types_in_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Exercise Types In User', new_exercise_types_in_user_path %>
