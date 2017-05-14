@@ -8,7 +8,8 @@ class SquadGroupsController < ApplicationController
   end
 
   def search
-    @results = SquadGroup.where(exercise_types_id: params[:search][:search])
+    @search_param = params[:search]
+    @results = SquadGroup.where(exercise_types_id: @search_param)
   end
 
   # GET /squad_groups/1

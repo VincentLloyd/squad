@@ -1,10 +1,32 @@
+<h1>Results for <%= @search_param %></h1>
 <div class="squads">
   <% @results.each do |squad| %>
   <div class="squad">
     Name:<%= squad.name %> <br>
     Location:<%= squad.location %> <br>
     Maximum Spaces:<%= squad.max_members %> <br>
-    Price:<%= squad.price %> <br>
+    Price:$<%= squad.price / 100 %>aud <br>
+  <br>
+  <% squad_member_count = SquadMember.where(squadgroup_id: squad.id).count %>
+  <% member = SquadMember.find_by(user_id: current_user.id, squadgroup_id: squad.id) %>
+  <% if member.present? %>
+    <%= form_tag squad_group_squad_member_path(squad,member.id),method: :delete,:multipart => true do %>
+      <%= hidden_field_tag :search, @search_param %>
+      <%= button_tag "Leave" %>
+    <% end %>
+  <% else %>
+    <% if squad_member_count < squad.max_members %>
+    <%= form_tag squad_group_squad_members_path(squad),method: :post,:multipart => true do %>
+    <%= hidden_field_tag :search, @search_param %>
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-email="<%= current_user.email %>"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="A month's subscription"
+          data-amount=<%= squad.price %>
+          data-locale="auto"></script>
+    <% end %>
+    <% end %>
+  <% end %>
   </div>
   <% end %>
 </div>

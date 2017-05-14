@@ -5,7 +5,6 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
       <th>Name</th>
       <th>Location</th>
       <th>Max members</th>
@@ -17,7 +16,6 @@
   <tbody>
     <% @squad_groups.each do |squad_group| %>
       <tr>
-        <td><%= squad_group.user %></td>
         <td><%= squad_group.name %></td>
         <td><%= squad_group.location %></td>
         <td><%= squad_group.max_members %></td>

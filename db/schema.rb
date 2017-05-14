@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170514075549) do
+ActiveRecord::Schema.define(version: 20170514120625) do
 
   create_table "captain_profiles", force: :cascade do |t|
     t.integer  "user_id"
@@ -64,6 +64,15 @@ ActiveRecord::Schema.define(version: 20170514075549) do
     t.datetime "updated_at",        null: false
     t.index ["captain_id"], name: "index_squad_groups_on_captain_id"
     t.index ["exercise_types_id"], name: "index_squad_groups_on_exercise_types_id"
+  end
+
+  create_table "squad_members", force: :cascade do |t|
+    t.integer  "squadgroup_id"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["squadgroup_id"], name: "index_squad_members_on_squadgroup_id"
+    t.index ["user_id"], name: "index_squad_members_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -17,8 +17,7 @@
   <% end %>
 
   <%= form_tag search_squad_groups_path,method: :get,:multipart => true do %>
-  <%= select :search,:search, ExerciseType.all.collect {|exercise| [ exercise.name, exercise.id ] } %>
-
+  <%= select_tag :search, options_from_collection_for_select(ExerciseType.all, :id, :name)%>
   <%= button_tag 'Search' %>
   <% end %>
 
