@@ -1,4 +1,4 @@
-<h1>Results for <%= @search_param %></h1>
+<h1>Results for <%= ExerciseType.find(@search_param).name %></h1>
 <div class="squads">
   <% @results.each do |squad| %>
   <div class="squad">

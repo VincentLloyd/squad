@@ -20,10 +20,11 @@
   <%= select_tag :search, options_from_collection_for_select(ExerciseType.all, :id, :name)%>
   <%= button_tag 'Search' %>
   <% end %>
+  <h3>My squads as captain</h3>
   <% if @captain_profile.present? %>
-    <% if @results.present?%>
+    <% if @captain_results.present?%>
       <div class="squads">
-        <% @results.each do |squad_group| %>
+        <% @captain_results.each do |squad_group| %>
           <div class="squad" style="border-style: solid;">
             Name:<%= squad_group.name %> <br>
 
@@ -42,5 +43,26 @@
       <p>No Squads made</p>
     <% end %>
   <% end %>
+
+  <h3>Squads I've Joined</h3>
+    <% if @squad_groups.present?%>
+      <div class="squads">
+        <% @squad_groups.each do |squad_group| %>
+        <div class="squad" style="border-style: solid;">
+          Name:<%= squad_group.name %> <br>
+
+          Location:<%= squad_group.location %> <br>
+
+          Max Members:<%= squad_group.max_members %> <br>
+
+          Price:<%= squad_group.price %> <br>
+          Type:<%= ExerciseType.find(squad_group.exercise_types_id).name %> <br>
+          <%= link_to "Show", squad_group_path(squad_group.id) %> <br>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p>No squad joined</p>
+    <% end %>
 
 </div>
