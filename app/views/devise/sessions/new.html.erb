@@ -27,7 +27,7 @@
         <% if devise_mapping.rememberable? %>
           <div class="field flex-center-row remember">
             <%= f.check_box :remember_me %>
-            <%= f.label :remember_me, :class => 'devise-label' %>
+            <%= f.label :remember_me, :class => "devise-label white" %>
           </div>
         <% end %>
         <div class="actions">
@@ -35,7 +35,7 @@
         </div>
         <% if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
           <div id="forgot-label">
-            <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+            <%= link_to "Forgot your password?", new_password_path(resource_name), :class => "white" %><br />
           </div>
         <% end %>
       <% end %>
@@ -45,7 +45,9 @@
       <div class="flex-center-row">
         <!-- <h2 id="sub-title">Not a member?</h2> -->
         <% if devise_mapping.registerable? && controller_name != 'registrations' %>
-          <%= link_to "Join us", new_registration_path(resource_name), :class => 'btn btn-info my-2 my-sm-0' %>
+        <div class="button-box">
+          <%= link_to "Join us", new_registration_path(resource_name), :class => 'btn btn-info my-2 my-sm-0 join-button' %>
+        </div>
         <% end %>
       </div>
     </div>
