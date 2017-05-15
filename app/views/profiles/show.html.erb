@@ -5,15 +5,6 @@
     <h4 id="accordion" role="tablist" aria-multiselectable="true" class="card-header">Account Details</h4>
     <div class="card-block">
       <p class="card-text">
-        <%= current_user.exercise_type.pluck(:name) %>
-      </p>
-    </div>
-  </div>
-
-  <div class="card profile-card">
-    <h4 id="accordion" role="tablist" aria-multiselectable="true" class="card-header">Account Details</h4>
-    <div class="card-block">
-      <p class="card-text">
         <strong>Login Email:</strong>
         <%= current_user.email %>
       </p>
@@ -44,10 +35,19 @@
         <strong>Date of Birth:</strong>
         <%= @profile.date_of_birth.to_formatted_s(:long) %>
       </p>
+      <% if @profile.gender.present? %>
+        <p class="card-text">
+          <strong>Gender:</strong>
+          <%= @profile.gender %>
+        </p>
+        <% end %>
       <p class="card-text">
-        <strong>Gender:</strong>
-        <%= @profile.gender %>
+        <strong>Avatar:</strong>
+        <div class="image-box" style="width: 100%">
+          <%= image_tag @profile.avatar_src.to_s, style: 'width: 100%' %>
+        </div>
       </p>
+
       <p class="card-text">
         <strong>Member Since:</strong>
         <%= current_user.created_at.to_formatted_s(:long) %>

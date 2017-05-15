@@ -1,7 +1,8 @@
 #forgot-label {
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
-  margin: 0 0 10px 0;
+  margin-top: 10px;
+  color: #fff;
 }
 
 #sub-title {
@@ -15,6 +16,7 @@
   font-family: 'Anton', sans-serif;
   font-size: 80px;
   margin-bottom: 0;
+  color: #fff;
 }
 
 #nav-title {
@@ -39,6 +41,9 @@
 
 .sign-in-box {
   text-align: center;
+  background-color: rgba(0,0,0,0.5);
+  padding: 30px;
+  border-radius: 10px;
 }
 
 .join-bar {
@@ -47,6 +52,22 @@
   left: 0;
   right: 0;
   background-color: #000;
+  height: 60px;
+}
+
+.join-button-box {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.join-button {
+  background-color: #000;
+  border-color: #000;
+  color: #fff;
 }
 
 .title {
@@ -79,8 +100,16 @@
 }
 
 .remember {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
+
+.sign-in-btn {
+  background-color: #fff;
+  border-color: #fff;
+  color: #000;
+  margin-bottom: 10px;
+}
+
 
 // flash messages
 
@@ -101,7 +130,7 @@
 .diamond-box {
   display: flex;
   justify-content: center;
-  margin-bottom: 50px;
+  margin-bottom: 80px;
 }
 
 .diamond {
@@ -112,7 +141,7 @@
 	width: 0;
 	height: 0;
 	border: 15px solid transparent;
-	border-bottom-color: black;
+	border-bottom-color: white;
 	position: relative;
 	top: -15px;
 }
@@ -125,5 +154,14 @@
 	width: 0;
 	height: 0;
 	border: 15px solid transparent;
-	border-top-color: black;
+	border-top-color: white;
+}
+
+.bg-image {
+  background: asset-url('home_landscape.jpg');
+  background-size: cover;
+}
+
+.white {
+  color: #fff;
 }

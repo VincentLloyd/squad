@@ -1,51 +1,55 @@
-<div class="content">
-  <div class="sign-in-box">
+<div class="bg-image">
+  <div class="content">
+    <div class="sign-in-box">
 
-    <h1 id="title">SQUAD</h1>
-    <div class="diamond-box">
-      <div class="diamond">
-        <div id="diamond"></div>
+      <h1 id="title">SQUAD</h1>
+      <div class="diamond-box">
+        <div class="diamond">
+          <div id="diamond"></div>
+        </div>
+        <div class="diamond">
+          <div id="diamond"></div>
+        </div>
+        <div class="diamond">
+          <div id="diamond"></div>
+        </div>
       </div>
-      <div class="diamond">
-        <div id="diamond"></div>
-      </div>
-      <div class="diamond">
-        <div id="diamond"></div>
-      </div>
+
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field-text">
+          <%= f.email_field :email, autofocus: true, placeholder: "enter email" %>
+        </div>
+
+        <div class="field-text">
+          <%= f.password_field :password, autocomplete: "off", placeholder: "enter password"  %>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="field flex-center-row remember">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me, :class => "devise-label white" %>
+          </div>
+        <% end %>
+        <div class="actions">
+          <%= f.submit "Sign in", :class => 'btn sign-in-btn my-2 my-sm-0' %>
+        </div>
+        <% if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+          <div id="forgot-label">
+            <%= link_to "Forgot your password?", new_password_path(resource_name), :class => "white" %><br />
+          </div>
+        <% end %>
+      <% end %>
     </div>
 
-    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field-text">
-        <%= f.email_field :email, autofocus: true, placeholder: "enter email" %>
-      </div>
-
-      <div class="field-text">
-        <%= f.password_field :password, autocomplete: "off", placeholder: "enter password"  %>
-      </div>
-
-      <% if devise_mapping.rememberable? %>
-        <div class="field flex-center-row remember">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me, :class => 'devise-label' %>
+    <div class="join-bar">
+      <div class="flex-center-row">
+        <!-- <h2 id="sub-title">Not a member?</h2> -->
+        <% if devise_mapping.registerable? && controller_name != 'registrations' %>
+        <div class="button-box">
+          <%= link_to "Join us", new_registration_path(resource_name), :class => 'btn btn-info my-2 my-sm-0 join-button' %>
         </div>
-      <% end %>
-      <div class="actions">
-        <%= f.submit "Sign in", :class => 'btn btn-warning my-2 my-sm-0' %>
+        <% end %>
       </div>
-      <% if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-        <div id="forgot-label">
-          <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-
-  <div class="join-bar">
-    <div class="flex-center-row">
-      <h2 id="sub-title">Not a member?</h2>
-      <% if devise_mapping.registerable? && controller_name != 'registrations' %>
-        <%= link_to "Join us", new_registration_path(resource_name), :class => 'btn btn-info my-2 my-sm-0' %>
-      <% end %>
     </div>
   </div>
 </div>

@@ -8,6 +8,8 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'stripe'
 
+gem "mini_magick"
+
 gem 'normalize-rails'
 
 gem 'friendly_id', '~> 5.1.0'
