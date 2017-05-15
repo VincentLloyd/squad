@@ -12,9 +12,11 @@
 #  avatar_src    :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  image         :string
 #
 
 class Profile < ApplicationRecord
   belongs_to :user
   validates_uniqueness_of :username
+  mount_uploader :avatar_src, ImageUploader
 end

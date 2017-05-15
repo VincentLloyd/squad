@@ -1,13 +1,18 @@
-<%= simple_form_for(@exercise_types_in_user) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <!-- <%= f.association :user %> -->
-    <%= f.association :exercise_type %>
-    <%= f.input :offered %>
-  </div>
+  <div class="profile-page-box">
+    <div class="card profile-card">
+      <%= simple_form_for(@exercise_types_in_user) do |f| %>
+        <%= f.error_notification %>
+      <h4 class="card-header">Add Captain Expertise</h4>
+      <div class="form-inputs">
+        <!-- <%= f.association :user %> -->
+        <%= f.association :exercise_type %>
+        <%= f.input :offered %>
+      </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+    </div>
   </div>
 <% end %>

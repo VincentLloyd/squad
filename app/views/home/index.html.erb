@@ -4,9 +4,6 @@
     <%= 'Logged in as ' + current_user.email + ' | User ID: ' + current_user.id.to_s %>
   </p>
 
-  <%= request.referrer %><br />
-  <%= request.referrer == new_user_session_path %><br /><br />
-
   <% if is_user_captain? %>
   <%= 'Your Squads'%><br />
   <%= 'Here be a list of ' + current_user.profile.first_name + '\'s squads' %><br />

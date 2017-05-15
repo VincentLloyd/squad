@@ -27,3 +27,7 @@
      margin-top: 5px;
    }
  }
+
+ @media (orientation : landscape) {
+   background-image: 'public/bg/home_landscape.jpg'
+ }
