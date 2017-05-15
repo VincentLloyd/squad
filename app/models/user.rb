@@ -29,6 +29,7 @@ class User < ApplicationRecord
   has_one :profile
   has_one :captain_profile
   has_many :exercise_types_in_user
+  has_many :squad_group
   has_many :exercise_type, through: :exercise_types_in_user
 
   protected

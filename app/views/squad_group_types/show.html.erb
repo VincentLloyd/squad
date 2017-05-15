@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Squadgroup:</strong>
+  <%= @squad_group_type.squadgroup %>
+</p>
+
+<p>
+  <strong>Exercise type:</strong>
+  <%= @squad_group_type.exercise_type %>
+</p>
+
+<%= link_to 'Edit', edit_squad_group_type_path(@squad_group_type) %> |
+<%= link_to 'Back', squad_group_types_path %>

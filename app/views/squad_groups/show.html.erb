@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+<% if @squad_group.captain_id != current_user.id %>
+<div class="captain" style='border-style: solid;'>
+  <h3>Captain Info</h3>
+  <%= @squad_group.captain_id %>
+  <% captain_profile = User.find(@squad_group.captain_id).profile %>
+  <p>
+    <strong>Username:</strong>
+    <%= captain_profile.username %>
+  </p>
+  <p>
+    <strong>Name:</strong>
+    <%= captain_profile.first_name %> <%= captain_profile.last_name %>
+  </p>
+  <p>
+    <strong>Gender:</strong>
+    <%= captain_profile.gender %>
+  </p>
+</div>
+<% end %>
+<p>
+
+<%# image_tag(captain_profile.avatar_src) if captain_profile.avatar_src != nil %>
+</p>
+
+<div class="squad-group">
+  <h3>Squad Group Info</h3>
+  <p>
+    <strong>Location:</strong>
+    <%= @squad_group.location %>
+  </p>
+
+  <p>
+    <strong>Max members:</strong>
+    <%= @squad_group.max_members %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= @squad_group.price %>
+  </p>
+</div>
+
+<%= link_to 'Edit', edit_squad_group_path(@squad_group)  if @squad_group.captain_id == current_user.id%> <br>
+<%= link_to 'Back', root_path %>
+
+<% if !@members.present? %>
+  <p>No members</p>
+<% else %>
+<div class="members">
+  <h3>Members</h3>
+  <% @members.each do |member| %>
+  <div class="member" style="border-style:solid;">
+    <% member_profile = User.find(member.user_id).profile %>
+    Username:
+    <%= member_profile.username %>
+    <br>
+    Name:
+    <%= member_profile.first_name %> <%= member_profile.last_name %>
+    <br>
+    Gender:
+   <%= member_profile.gender %>
+   <br>
+   <%= image_tag member_profile.avatar_src if member_profile.avatar_src != nil %>
+
+  </div>
+  <% end %>
+</div>
+<% end %>

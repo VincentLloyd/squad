@@ -1,0 +1,12 @@
+<%= simple_form_for(@squad_group_type) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :squadgroup %>
+    <%= f.association :exercise_type %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
