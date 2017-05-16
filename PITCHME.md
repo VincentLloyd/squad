@@ -122,7 +122,7 @@ RSpec.describe Profile, type: :model do
     profile.valid?
     byebug
     expect(profile.errors[:first_name]).to 
-    include("can't be blank")
+     include("can't be blank")
   end
 ```
 ---
