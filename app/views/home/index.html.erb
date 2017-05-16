@@ -1,14 +1,16 @@
 <%= render "layouts/navbar" %>
 <div class="profile-page-box">
-  <% if is_user_captain? %>
-    <%= link_to "Create a new Squad", new_squad_group_path%>
-  <% else %>
-    <%= link_to "Register as a Captain", new_captain_profile_path, class: 'btn btn-large btn-outline-success app-button profile-button' %>
-  <% end %>
-  <%= form_tag search_squad_groups_path, method: :get, :multipart => true do %>
-  <%= select_tag :search, options_from_collection_for_select(ExerciseType.all, :id, :name)%>
-  <%= button_tag "Search" %>
-  <% end %>
+
+  <div class="card profile-card">
+    <!-- <h4 class="card-header"></h4> -->
+    <div class="card-block">
+
+      <%= form_tag search_squad_groups_path , method: :get, :multipart => true do %>
+      <%= select_tag :search, options_from_collection_for_select(ExerciseType.all, :id, :name)%>
+      <%= button_tag "Search" %>
+      <% end %>
+    </div>
+  </div>
 
   <% if is_user_captain? %>
     <div class="card profile-card">
@@ -29,8 +31,9 @@
             <% end %>
           </div>
         <% else %>
-          <p>No Squads captained</p>
+          <p>You Captain No Squads</p>
         <% end %>
+        <%= link_to "Create a new Squad", new_squad_group_path, class: 'btn btn-large btn-outline-success app-button profile-button'%>
       </div>
     </div>
   <% end %>
@@ -52,7 +55,10 @@
           <% end %>
         </div>
       <% else %>
-        <p>No squad joined</p>
+        <p>You've Joined No Squads</p>
+      <% end %>
+      <% unless is_user_captain? %>
+        <%= link_to "Register as a Captain", new_captain_profile_path, class: 'btn btn-large btn-outline-success app-button profile-button' %>
       <% end %>
     </div>
 </div>

@@ -33,10 +33,9 @@
 
 
           <%= f.input :gender, collection: [ 'Male', 'Female' ] %>
-          <%= f.input :avatar_src, input_html: { hidden: true }, label: 'Upload Attachment' %>
-          <div class="input-append">
-            <input id="file-display" class="input-large uneditable-input" type="text">
-            <a id="upload-btn" class="btn"><i class="icon-upload-alt"></i> Browse</a>
+          <div class="field">
+            <%= f.label :avatar_src, label: 'Upload Avatar' %><br>
+            <%= f.file_field :avatar_src, :class => 'btn btn-large btn-outline-success app-button profile-button', "data-input" => false %>
           </div>
           <div class="field">
             <div class="actions">
@@ -48,9 +47,6 @@
     </div>
   </div>
 
-  <!-- <div class="field">
-    <%= f.label :avatar_src, label: 'Upload Avatar' %><br>
-    <%= f.file_field :avatar_src, :class => 'btn btn-large btn-outline-success app-button profile-button', "data-input" => false %>
-  </div> -->
+
 
 <% end %>

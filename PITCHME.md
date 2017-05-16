@@ -4,9 +4,9 @@
 
 ## User Stories
 
----
-
 ### Personal Trainers
+
+---
 
 1. To build a large client base, as a personal trainer, I want to be visible to a large audience of potential clients.
 
@@ -24,15 +24,30 @@
 
 6. In order to maximise my earning potential, as a personal trainer, I want to be able to lead multiple groups.
 
-   ---
+
+---
+
+## User Stories
 
 ### Exercisers
+---
+
 
 1. To maximise the value of my workout experience, as an exerciser, I want to workout with people of a similar physical capability to mine.
+
 2. To maximise my choice, as an exerciser, I want to be able to find PTs/groups based on a wide range of metrics (e.g. geography, group size, training format, rating, etc.)
+
+   ---
+
 3. To help me choose, as an exerciser, I want to be able to read reviews of a group and/or trainer of interest.
+
 4. To avoid boredom, as an exerciser, I want to be able to be a member of many different groups simultaneously.
+
+   ---
+
 5. To keep track of my progress, as an exerciser, I want to be able to see my physical performance charted over time.
+
+---
 
 ## Product Features
 
