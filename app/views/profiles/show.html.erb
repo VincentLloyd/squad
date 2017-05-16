@@ -11,7 +11,7 @@
       <div class="profile-button-bar" style="display=flex">
         <%= link_to'Edit Details', edit_profile_path(user_profile_id), :class => 'btn btn-large btn-outline-primary app-button profile-button' %>
         <%= link_to 'Reset Password', edit_user_registration_path, :class => 'btn btn-large btn-outline-primary app-button profile-button' %>
-        <%= link_to 'Deactivate Account', edit_user_registration_path, :class => 'btn btn-large btn-outline-danger app-button profile-button' %>
+        <%= link_to 'Deactivate Account', user_registration_path, method: :delete, :class => 'btn btn-large btn-outline-danger app-button profile-button' %>
       </div>
     </div>
   </div>
@@ -33,24 +33,23 @@
       </p>
       <p class="card-text">
         <strong>Date of Birth:</strong>
-        <%= @profile.date_of_birth.to_formatted_s(:long) %>
+        <%= @profile.birth_date.to_formatted_s(:long) %>
       </p>
       <% if @profile.gender.present? %>
-        <p class="card-text">
-          <strong>Gender:</strong>
-          <%= @profile.gender %>
-        </p>
-        <% end %>
+      <p class="card-text">
+        <strong>Gender:</strong>
+        <%= @profile.gender %>
+      </p>
+      <% end %>
+      <p class="card-text">
+        <strong>Member Since:</strong>
+        <%= current_user.created_at.to_formatted_s(:long) %>
+      </p>
       <p class="card-text">
         <strong>Avatar:</strong>
         <div class="image-box" style="width: 100%">
           <%= image_tag @profile.avatar_src.to_s, style: 'width: 100%' %>
         </div>
-      </p>
-
-      <p class="card-text">
-        <strong>Member Since:</strong>
-        <%= current_user.created_at.to_formatted_s(:long) %>
       </p>
       <div class="profile-button-bar" style="display=flex">
         <%= link_to 'Edit Profile', edit_profile_path(user_profile_id), :class => 'btn btn-large btn-outline-primary app-button profile-button' %>

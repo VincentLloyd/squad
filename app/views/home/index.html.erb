@@ -1,65 +1,58 @@
 <%= render "layouts/navbar" %>
 <div class="profile-page-box">
-  <p>
-    <%= 'Logged in as ' + current_user.email + ' | User ID: ' + current_user.id.to_s %>
-  </p>
+  <% if is_user_captain? %>
+    <%= link_to "Create a new Squad", new_squad_group_path%>
+  <% else %>
+    <%= link_to "Register as a Captain", new_captain_profile_path, class: 'btn btn-large btn-outline-success app-button profile-button' %>
+  <% end %>
+  <%= form_tag search_squad_groups_path, method: :get, :multipart => true do %>
+  <%= select_tag :search, options_from_collection_for_select(ExerciseType.all, :id, :name)%>
+  <%= button_tag "Search" %>
+  <% end %>
 
   <% if is_user_captain? %>
-  <%= link_to "Create new SquadGroup",new_squad_group_path%>
-  <%= 'Your Squads'%><br />
-  <%= 'Here be a list of ' + current_user.profile.first_name + '\'s squads' %><br />
-  <% end %>
-  <% if current_user.captain_profile.nil? %>
-  <%= link_to 'Register as a Captain', new_captain_profile_path %><br />
-  <% end %>
-
-  <%= form_tag search_squad_groups_path,method: :get,:multipart => true do %>
-  <%= select_tag :search, options_from_collection_for_select(ExerciseType.all, :id, :name)%>
-  <%= button_tag 'Search' %>
-  <% end %>
-  <h3>My squads as captain</h3>
-  <% if @captain_profile.present? %>
-    <% if @captain_results.present?%>
-      <div class="squads">
-        <% @captain_results.each do |squad_group| %>
-          <div class="squad" style="border-style: solid;">
-            Name:<%= squad_group.name %> <br>
-
-            Location:<%= squad_group.location %> <br>
-
-            Max Members:<%= squad_group.max_members %> <br>
-
-            Price:<%= squad_group.price %> <br>
-            Type:<%= ExerciseType.find(squad_group.exercise_types_id).name %> <br>
-            <%= link_to "Class Finished",class_finished_squad_group_path(squad_group.id) %> <br>
-            <%= link_to "Show",squad_group_path(squad_group.id) %> <br>
+    <div class="card profile-card">
+      <h4 class="card-header">Squads Captained</h4>
+      <div class="card-block">
+        <% if @captain_results.present?%>
+          <div class="squads">
+            <% @captain_results.each do |squad_group| %>
+              <div class="squad" style="border-style: solid;">
+                Name:<%= squad_group.name %> <br />
+                Location:<%= squad_group.location %> <br />
+                Max Members:<%= squad_group.max_members %> <br />
+                Price:<%= squad_group.price %> <br />
+                Type:<%= ExerciseType.find(squad_group.exercise_types_id).name %> <br />
+                <%= link_to "Class Finished", class_finished_squad_group_path(squad_group.id) %> <br />
+                <%= link_to "Show", squad_group_path(squad_group.id) %> <br>
+              </div>
+            <% end %>
           </div>
+        <% else %>
+          <p>No Squads captained</p>
         <% end %>
       </div>
-    <% else %>
-      <p>No Squads made</p>
-    <% end %>
+    </div>
   <% end %>
 
-  <h3>Squads I've Joined</h3>
-    <% if @squad_groups.present?%>
-      <div class="squads">
-        <% @squad_groups.each do |squad_group| %>
-        <div class="squad" style="border-style: solid;">
-          Name:<%= squad_group.name %> <br>
-
-          Location:<%= squad_group.location %> <br>
-
-          Max Members:<%= squad_group.max_members %> <br>
-
-          Price:<%= squad_group.price %> <br>
-          Type:<%= ExerciseType.find(squad_group.exercise_types_id).name %> <br>
-          <%= link_to "Show", squad_group_path(squad_group.id) %> <br>
-          </div>
-        <% end %>
-      </div>
-    <% else %>
-      <p>No squad joined</p>
-    <% end %>
-
+  <div class="card profile-card">
+    <h4 class="card-header">Squad Memberships</h4>
+    <div class="card-block">
+      <% if @squad_groups.present?%>
+        <div class="squads">
+          <% @squad_groups.each do |squad_group| %>
+            <div class="squad" style="border-style: solid;">
+              Name: <%= squad_group.name %> <br />
+              Location: <%= squad_group.location %> <br />
+              Max Members: <%= squad_group.max_members %> <br />
+              Price: <%= squad_group.price %> <br />
+              Type: <%= ExerciseType.find(squad_group.exercise_types_id).name %> <br />
+              <%= link_to "Show", squad_group_path(squad_group.id) %> <br />
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <p>No squad joined</p>
+      <% end %>
+    </div>
 </div>

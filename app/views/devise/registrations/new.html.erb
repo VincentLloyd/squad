@@ -1,35 +1,27 @@
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<%= render 'layouts/navbar' %>
 
-<div class="box">
-  <div class="title">
-    <h1 id="title">JOIN</h1>
-  </div>
+<div class="profile-page-box">
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+    <div class="card profile-card">
+      <h4 class="card-header">User Signup</h4>
+      <div class="card-block">
 
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+        <div class="form-inputs">
+          <%= f.input :email, autofocus: true %>
+          <% if @minimum_password_length %>
+            <% min_length = @minimum_password_length.to_s + ' characters minimum' %>
+          <%end%>
+            <%= f.input :password, input_html: { autocomplete: "off", name: "user[password]", id: "user_password", placeholder: min_length } %>
+          <%= f.input :password_confirmation, input_html: { autocomplete: "off" } %>
+        </div>
 
-  <div class="field">
-    <div class="flex">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %>
+        <div class="actions">
+          <%= f.button :submit, "Sign up", class: 'btn btn-large btn-outline-success app-button profile-button' %>
+        </div>
+      </div>
     </div>
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+  <% end %>
 </div>
-<% end %>
 
 <%= render "devise/shared/links" %>

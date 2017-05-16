@@ -1,25 +1,26 @@
 <div class="nav-box">
   <nav class="navbar navbar-light bg-faded">
     <div class="nav-elements-box">
-      <%= link_to "SQUAD", {controller: "home", action: "index"}, id: "nav-title", class: "navbar-brand" %>
-      <div class="nav-link-box">
-        <% if user_profile_id.present? %>
-          <!-- <%= link_to 'Profile', profile_path(user_profile_id), :class => 'btn btn-large btn-outline-secondary app-button' %>
-          <%= link_to 'Sign Out', destroy_user_session_path, :class => 'btn btn-large btn-outline-secondary app-button', method: :delete %> -->
-          <!-- <div>
-            <%= image_tag current_user.profile.avatar_src.thumb.url, :class => 'caret' %>
-          </div> -->
+      <% if current_user.nil? %>
+        <p id="nav-title", class="navbar-brand">SQUAD</p>
+      <% else %>
+        <%= link_to "SQUAD", {controller: "home", action: "index"}, id: "nav-title", class: "navbar-brand" %>
+        <div class="nav-link-box">
           <button class="btn nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag current_user.profile.avatar_src.thumb.url, :class => 'caret' %>
+            <% if current_user.profile.nil? or current_user.profile.avatar_src.nil? %>
+              <%= image_tag "/assets/images/blank_avatar.jpg", :class => 'caret' %>
+            <% else %>
+              <%= image_tag current_user.profile.avatar_src.thumb.url, :class => 'caret' %>
+            <% end %>
           </button>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to 'Profile', profile_path(user_profile_id) %><br />
+            <% if current_user.profile.present? %>
+              <%= link_to 'Profile', profile_path(user_profile_id) %><br />
+            <% end %>
             <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+          </div>
         </div>
-
-
-        <% end %>
-      </div>
+      <% end %>
     </div>
   </nav>
 </div>

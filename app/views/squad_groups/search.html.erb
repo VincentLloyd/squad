@@ -1,4 +1,4 @@
-<h1>Results for <%= ExerciseType.find(@search_param).name %></h1>
+<h4>Results for <%= ExerciseType.find(@search_param).name %></h4>
 <div class="squads">
   <% @results.each do |squad| %>
   <div class="squad">
@@ -20,12 +20,15 @@
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="A month's subscription"
           data-amount=<%= squad.price %>
+          data-label='Pay to Join' %>
           data-locale="auto"></script>
     <% end %>
     <% else %>
     <p>Squad Full</p>
     <% end %>
+    <%= link_to 'Back', squad_groups_path %>
   <% end %>
   </div>
+  <%= link_to 'Back', squad_groups_path %>
   <% end %>
 </div>

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session
   before_action :authenticate_user!
   helper_method :user_profile_incomplete?
   helper_method :is_user_captain?

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170514155556) do
+ActiveRecord::Schema.define(version: 20170515144229) do
 
   create_table "captain_profiles", force: :cascade do |t|
     t.integer  "user_id"
@@ -41,14 +41,14 @@ ActiveRecord::Schema.define(version: 20170514155556) do
 
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "username",      null: false
-    t.string   "first_name",    null: false
-    t.string   "last_name",     null: false
-    t.date     "date_of_birth", null: false
+    t.string   "username",   null: false
+    t.string   "first_name", null: false
+    t.string   "last_name",  null: false
+    t.date     "birth_date", null: false
     t.string   "gender"
     t.string   "avatar_src"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
     t.index ["username"], name: "index_profiles_on_username", unique: true
   end
