@@ -1,15 +1,30 @@
 # SQUAD APP
 
+---
+
 ## User Stories
+
+---
 
 ### Personal Trainers
 
 1. To build a large client base, as a personal trainer, I want to be visible to a large audience of potential clients.
+
 2. To attract result oriented clients, as a personal trainer, I want the results achieved by my current clients to be publicly available.
+
+   ---
+
 3. To help motivate my clients, as a personal trainer, I want to be able to compare my group's progress against that of other groups.
+
 4. In order to differentiate myself from other personal trainers, as a PT, I want potential clients to be able to choose me based on the type of exercise experience/expertise I specialise in.
+
+   ---
+
 5. In order to differentiate myself from other personal trainers, as a personal trainer, I want to be able to determine the key characteristics of my groups (e.g. price, exercise format, group size, admission criteria, etc.)
+
 6. In order to maximise my earning potential, as a personal trainer, I want to be able to lead multiple groups.
+
+   ---
 
 ### Exercisers
 
@@ -18,6 +33,12 @@
 3. To help me choose, as an exerciser, I want to be able to read reviews of a group and/or trainer of interest.
 4. To avoid boredom, as an exerciser, I want to be able to be a member of many different groups simultaneously.
 5. To keep track of my progress, as an exerciser, I want to be able to see my physical performance charted over time.
+
+## Product Features
+
+
+
+
 
 ## Design / Planning
 
